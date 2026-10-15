@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PiPGeek settings</title>
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<header>
+  <img src="icons/icon48.png" alt="" width="48" height="48">
+  <div>
+    <h1>PiPGeek</h1>
+    <p class="muted">Picture in picture for any video</p>
+  </div>
+</header>
+
+<section class="card">
+  <h2>How to use it</h2>
+  <ol>
+    <li>Open a page with a video and click the PiPGeek icon, or press <kbd id="key">Alt+P</kbd>. The main video pops out into a small floating window that stays on top of your other windows.</li>
+    <li>Click the icon or press the shortcut again to put it back.</li>
+    <li>To choose one video, right-click it and pick <b>Pop out video</b>. On some sites you need to right-click twice to get past the site's own menu.</li>
+  </ol>
+  <p class="muted">PiPGeek picks the biggest video that is playing and on screen, including videos inside frames from the same site and inside page components. If a site has switched picture-in-picture off for its player, PiPGeek switches it back on for that video.</p>
+  <p><button id="keys" class="ghost">Change the shortcut</button> <span class="muted" id="keysNote"></span></p>
+</section>
+
+<section class="card" id="autoCard">
+  <h2>Pop out when I switch tabs</h2>
+  <label class="switch"><input type="checkbox" id="auto"> <span>Pop the playing video out by itself when I switch to another tab</span></label>
+  <p class="muted">This works on tabs where you have used PiPGeek since the page loaded. The browser only does it while the video is playing with sound, and it may ask you once to allow it. Coming back to the tab puts the video back.</p>
+  <div class="sub" id="everyBox">
+    <label class="switch"><input type="checkbox" id="every"> <span>Do this on every site, without clicking PiPGeek first</span></label>
+    <p class="muted">Needs access to the sites you visit, so your browser will ask. PiPGeek only uses it to tell the page it may pop its video out. It does not read or send anything.</p>
+  </div>
+  <p class="note" id="autoNote"></p>
+</section>
+
+<section class="card" id="ffCard" hidden>
+  <h2>Firefox</h2>
+  <p>Firefox has its own picture-in-picture as well. Hover over a video and click the button on its edge, press <kbd id="ffKey">Ctrl+Shift+]</kbd>, or right-click the video and pick <i>Watch in Picture-in-Picture</i>.</p>
+  <p class="muted">PiPGeek uses the same window. If your version of Firefox does not let add-ons open it, PiPGeek puts a <b>Pop out video</b> button on the video, or shows you the Firefox way. Firefox does not let add-ons pop videos out by themselves when you switch tabs.</p>
+</section>
+
+<section class="card">
+  <h2>Privacy</h2>
+  <p class="muted">PiPGeek has no account, no adverts and no tracking, and it sends nothing anywhere. It only looks at a page when you click its icon, press the shortcut or use its right-click menu. The only thing it stores is the setting on this page, on your own computer.</p>
+  <p class="muted">Free and open source from <a href="https://techygeekshome.info/browser-extensions/pipgeek/" target="_blank" rel="noopener">TechyGeeksHome</a>.</p>
+</section>
+<script src="options.js"></script>
+</body>
+</html>
