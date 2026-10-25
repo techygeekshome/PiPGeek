@@ -1,10 +1,49 @@
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/icons/icon128.png" alt="PiPGeek logo" width="96" height="96">
+
 # PiPGeek: Picture in Picture
+
+**Pop the main video on any page out into a floating window with one click or Alt+P. Click again to put it back. No tracking.**
+
+[![Version](https://img.shields.io/github/v/release/techygeekshome/PiPGeek?label=version&color=4c9bff)](https://github.com/techygeekshome/PiPGeek/releases)
+[![Platform](https://img.shields.io/badge/browser-Chrome%20%7C%20Edge%20%7C%20Firefox-0078d4)](#%EF%B8%8F-download--install)
+[![License](https://img.shields.io/badge/license-GPL--3.0-3fb950)](LICENSE)
+[![Made by TechyGeeksHome](https://img.shields.io/badge/made%20by-TechyGeeksHome-b191f2)](https://techygeekshome.info)
+[![Support on Ko-fi](https://img.shields.io/badge/support-Ko--fi-ff5e5b)](https://ko-fi.com/techygeekshome)
+
+[Download](#%EF%B8%8F-download--install) · [Features](#-what-it-does) · [Privacy](#-privacy) · [Full guide](https://techygeekshome.info/browser-extensions/pipgeek/) · [License](#-license)
+
+</div>
+
+---
+
+## 🎬 See it in action
+
+[![PiPGeek demo video](https://img.youtube.com/vi/xyFrsHnWMIA/maxresdefault.jpg)](https://www.youtube.com/watch?v=xyFrsHnWMIA)
+
+---
 
 Pop the main video on any page out into a small floating window that stays on top of everything else. One click on the icon, or Alt+P. Click again to put it back.
 
-**Download and full guide:** https://techygeekshome.info/browser-extensions/pipgeek/
+The full guide, with every step explained, is on [TechyGeeksHome](https://techygeekshome.info/browser-extensions/pipgeek/).
 
-## What it does
+## 📸 Screenshots
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-back-in-page.jpg" width="49%" />
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-other-tab.jpg" width="49%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-popped-out.jpg" width="49%" />
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-right-click.jpg" width="49%" />
+</p>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-settings.jpg" width="49%" />
+  <img src="https://raw.githubusercontent.com/techygeekshome/PiPGeek/main/screenshots/pipgeek-video-page.jpg" width="49%" />
+</p>
+
+## ✨ What it does
 
 - **One click or Alt+P** pops the video out. Do it again and the video goes back into the page.
 - **Picks the right video for you**: the biggest one that is playing and on screen, not the small advert in the corner or the paused trailer further down.
@@ -13,14 +52,14 @@ Pop the main video on any page out into a small floating window that stays on to
 - **Right-click any video** and pick **Pop out video** to choose that one.
 - **Pop out when I switch tabs** (optional, Chrome, Edge and other Chromium browsers): the playing video floats out by itself when you move to another tab, using the browser's own Media Session "enterpictureinpicture" action.
 
-## What it won't do
+## 🚫 What it won't do
 
 - It can't reach a video inside a frame from another site (an embedded player) unless you allow PiPGeek on every site in its settings. Without that, it tells you, and the browser's own right-click item still works.
 - It can't run on browser pages such as settings, the extension stores or the PDF viewer. The icon shows a "!" there.
 - Pop out when I switch tabs is up to the browser: Chromium only does it while the video plays with sound, and may ask you once. Firefox does not offer it to add-ons.
 - In Firefox, a click on the toolbar icon does not count as you using the page, so Firefox refuses the first try. PiPGeek then puts a **Pop out video** button on the video: one more click and it floats. Alt+P and the right-click menu work straight away.
 
-## Install
+## ⬇️ Download & install
 
 Pick the download for your browser from the [latest release](https://github.com/techygeekshome/PiPGeek/releases/latest).
 
@@ -51,7 +90,7 @@ Firefox removes temporary add-ons when it closes.
 
 The code in this repo is the Chromium version. `manifest.firefox.json` is the Firefox manifest. Run `./build.sh` to make every package in `dist/`.
 
-## Use
+## 🧭 How to use
 
 1. Open a page with a video and click the PiPGeek icon, or press **Alt+P**.
 2. The video floats in a small window. Move it, resize it, and carry on in other tabs or apps.
@@ -59,18 +98,38 @@ The code in this repo is the Chromium version. `manifest.firefox.json` is the Fi
 4. To pick one video, right-click it and choose **Pop out video**. Some sites have their own menu: right-click a second time to get the browser's menu.
 5. To change the shortcut or switch on pop out when I switch tabs, right-click the icon and open the settings.
 
-## How it works
+## ⚙️ How it works
 
 - `background.js` listens for the icon, the shortcut and the right-click menu. Only then does it run `pipgeek-core.js` in the tab you are on, using the browser's `activeTab` and `scripting` permissions.
 - `pipgeek-core.js` looks through the page, its same-site frames and its shadow roots, scores every video (playing and on screen first, then the biggest), and calls the browser's own `requestPictureInPicture()`. If the browser says no, it shows a button on the video, because a click there always counts.
 - `auto.js` is only used if you switch on pop out when I switch tabs **and** allow PiPGeek on every site. It registers the Media Session `enterpictureinpicture` action on each page. Without every-site access, the same action is registered on tabs where you have used PiPGeek.
 
-## Privacy
+## 🔒 Privacy
 
 PiPGeek has no account, no analytics, no adverts and sends nothing anywhere. It only looks at a page when you click its icon, press its shortcut or use its right-click item. The only thing it stores is your pop out when I switch tabs setting, on your own computer.
 
-## Licence
+## ☕ Support
+
+PiPGeek is free and always will be. If it saved you some time, you can [buy us a coffee on Ko-fi](https://ko-fi.com/techygeekshome). Welcome, but never expected.
+
+## 🐛 Support & contributing
+
+Found a bug or have a request? [Open an issue](https://github.com/techygeekshome/PiPGeek/issues) or [get in touch](https://techygeekshome.info/contact/). Pull requests are welcome.
+
+## 📄 License
 
 GPL-3.0. Free for everyone, including commercial use.
 
 PiPGeek is an independent tool made by [TechyGeeksHome](https://techygeekshome.info). Picture-in-picture windows are drawn by your browser.
+
+© 2026 TechyGeeksHome.
+
+---
+
+<div align="center">
+
+Made with ❤️ by [**TechyGeeksHome**](https://techygeekshome.info)
+
+[Website](https://techygeekshome.info) · [YouTube](https://www.youtube.com/channel/UCtEuFj1SMLiuRoucD1hv8dA) · [X](https://x.com/TechyGeeks1) · [Instagram](https://www.instagram.com/andrewarmstrongtgh/)
+
+</div>
